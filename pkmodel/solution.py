@@ -22,7 +22,7 @@ class Solution:
 	
 	def plot(self):
 		fig = plt.figure()
-		for model in models:
+		for model in self.models:
 			# how many compartments 
 			# for loop again? plot all?
 			if model.protocol[-1].name == 'subcutaneous':
@@ -31,7 +31,7 @@ class Solution:
 				N = len(np.array(model.compartments['peripheral']))+1 
 			solution = model.solution
 			for compartment in range(N):
-				plt.plot(solution.t, solution.y[compartment, :], label=f"model_{i+1}")
+				plt.plot(solution.t, solution.y[compartment, :], label=f"model_{compartment+1}")
 				# add legend
 		
 
