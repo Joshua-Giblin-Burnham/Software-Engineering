@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools"] # setuptools and wheel are necessary for the build
+
+[project]
+name = "pkmodel"
+version = "0.1"
+description = 'A package to model Pharmacokinetic drug delivery'
+authors = [
+    {name = "J. Giblin-Burnham, C. Hamiltion, C. Chung, F.",  email = "j.giblin-burnham@hotmail.com"}
+]
+readme = "README.md"
+homepage = 'https://pkmodel.readthedocs.io/en/latest/index.html'
+
+[project.urls]
+Source = "myfancywebsite.com"'https://pkmodel.readthedocs.io/en/latest/index.html'
+
+
+[project.scripts] # Define scripts here if you have any
+
+[project.dependencies]
+numpy = "*"
+matplotlib = "*"
+scipy = "*"
+absl-py = "*"
+keras = "*"
+sphinx_rtd_theme = "*"
+
+[project.optional-dependencies] # Define optional dependencies here if you have any
