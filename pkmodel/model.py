@@ -4,6 +4,7 @@
 
 import scipy.integrate
 from .protocol import Protocol
+from .compartment import Compartment
 
 class Model:
     """A Pharmokinetic (PK) model
@@ -15,35 +16,39 @@ class Model:
         an example paramter
     """
 
-    def __init__(self, name, Q_p1=2.0, V_c=1.0, V_p1=1.0, CL=1.0, X=1.0, k_a=None ):
-
+    def __init__(self, name):
         self.name = name
-        self.protocol = []
+        self.compartments = {'central' : [], 
+                             'dose' : [], 
+                             'peripheral' : []
+                             }
+        self.protocol = [] 
+        self.solution = None   
 
-        self.Q_p1 = Q_p1
-        self.V_c  = V_c
-        self.V_p1 = V_p1
-        self.CL   = CL
-        self.X    = X
 
-        if k_a != None:
-            self.k_a = k_a        
-
-    # @property
-    # def arg(self):
-    #     args = self.__dict__
-    #     args.pop("name")
-    #     args.pop("protocal")
-    #     return list(args.values)
-
-    def add_protocols(self, dose, name):
-        self.protocol.append(Protocol(dose, name))
-
-    def solve(self, t_eval, y0):
-        args = list(self.__dict__.values())[2:]
-        rhs = self.protocol[-1].rhs
-        sol = scipy.integrate.solve_ivp(fun=lambda t, y: rhs(t, y, args),
-                                        t_span=[t_eval[0], t_eval[-1]],
-                                        y0=y0, t_eval=t_eval )
+    def add_compartment(self, name, **kwargs):
+        if name == 'central' and len(self.compartments[name]) == 0 :
+            self.compartments['central'].append(Compartment(name, **kwargs))
         
-        return sol
+        elif name == 'dose' and len(self.compartments[name]) == 0:
+            self.compartments['dose'].append(Compartment(name, **kwargs))
+
+        elif name[:10] == 'peripheral':
+            self.compartments['peripheral'].append(Compartment(name, **kwargs))
+
+        else:
+            ValueError('Not accepted compartment label')
+
+    def add_protocol(self, name, dose):
+        self.protocol.append(Protocol(name, self.compartments, dose))
+
+    def solve(self, t_eval, q0, *arg):
+        
+        rhs = self.protocol[-1].rhs
+        solution = scipy.integrate.solve_ivp(fun = lambda t, q : rhs(t, q, *arg),
+                                        t_span = [t_eval[0], t_eval[-1]],
+                                        y0 = q0, t_eval = t_eval )
+        self.solution = solution
+        
+        return solution
+    
