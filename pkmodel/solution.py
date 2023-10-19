@@ -23,6 +23,7 @@ class Solution:
 	def plot(self):
 		fig, ax = plt.subplots(1,1)
 		linestyle = ['-.','--']
+
 		for model in self.models:
 			# how many compartments 
 			# for loop again? plot all?
@@ -37,6 +38,7 @@ class Solution:
 
 			for compartment in range(N):
 				ax.plot(solution.t, solution.y[compartment+1, :], ls = np.roll(linestyle, compartment)[0], color = plt.gca().lines[-1].get_color(), label=model.name+"q.peripheral_"+str(compartment+1))
+
 
 		plt.legend()
 		plt.show()
