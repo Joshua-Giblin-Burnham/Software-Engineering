@@ -10,6 +10,6 @@ class ProtocolTest(unittest.TestCase):
         """
         Tests Protocol creation.
         """
-        model = pk.Protocol()
-        self.assertEqual(model.value, 43)
+        model = pk.Protocol(dose=2)
+        self.assertEqual(model.name, 'intravenous')
 
