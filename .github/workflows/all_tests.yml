@@ -8,6 +8,7 @@ on:
     branches: [ "charlie-test" ]
   pull_request:
     branches: [ "charlie-test" ]
+   workflow_dispatch:
 
 jobs:
   build:
