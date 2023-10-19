@@ -3,6 +3,7 @@
 #
 
 import scipy.integrate
+import numpy as np
 from .protocol import Protocol
 from .compartment import Compartment
 
@@ -19,8 +20,8 @@ class Model:
     def __init__(self, name = 'pkmodel'):
         self.name = name
         self.compartments = {'central' : [], 
-                             'dose' : [], 
-                             'peripheral' : []
+                             'peripheral' : [],                             
+                             'dose' : []
                              }
         self.protocol = [] 
         self.solution = None   
@@ -39,11 +40,14 @@ class Model:
         else:
             ValueError('Not accepted compartment label')
 
+
     def add_protocol(self, name, dose):
         self.protocol.append(Protocol(name, self.compartments, dose))
 
-    def solve(self, t_eval, q0, *arg):
-        
+    def solve(self, t_eval, *arg):
+        q0 = np.array([compartment.q0 
+                       for compartment_list in self.compartments.values() 
+                       for compartment in compartment_list])
         rhs = self.protocol[-1].rhs
         solution = scipy.integrate.solve_ivp(fun = lambda t, q : rhs(t, q, *arg),
                                         t_span = [t_eval[0], t_eval[-1]],

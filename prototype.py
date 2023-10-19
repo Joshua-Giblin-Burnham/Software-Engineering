@@ -30,10 +30,10 @@ model2.add_protocol('intravenous', dose)
 
 ###################################################
 
-t_eval, q0 = np.linspace(0, 1, 1000), [np.zeros(4), np.zeros(2)]
+t_eval = np.linspace(0, 1, 1000)
 
-m1_solution = model1.solve(t_eval, q0[0], X)
-m2_solution = model2.solve(t_eval, q0[1], X)
+m1_solution = model1.solve(t_eval, X)
+m2_solution = model2.solve(t_eval, X)
 
 solutions = pk.Solution([model1, model2])
 solutions.plot()
