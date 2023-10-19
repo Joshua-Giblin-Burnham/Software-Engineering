@@ -6,8 +6,10 @@ def dose(t, X):
     return X
 
 X = 1.0
+t_eval = np.linspace(0, 1, 1000)
 
 ###################################################
+
 model1 = pk.Model('model1')
 
 model1.add_compartment('central', volume= 1, k_rate=1.0)
@@ -33,8 +35,6 @@ model2.add_protocol('intravenous', dose)
 model2.solve(t_eval, X)
 
 ###################################################
-
-t_eval = np.linspace(0, 1, 1000)
 
 solutions = pk.Solution(model1)
 solutions.add_model(model2)
