@@ -19,6 +19,8 @@ model1.add_compartment('dose', k_rate=1.0)
 
 model1.add_protocol('subcutaneous', dose)
 
+model1.solve(t_eval, X )
+
 ###################################################
 
 model2 = pk.Model('model2')
@@ -28,12 +30,12 @@ model2.add_compartment('peripheral1', volume= 1.0, k_rate=1.0)
 
 model2.add_protocol('intravenous', dose)
 
+model2.solve(t_eval, X)
+
 ###################################################
 
 t_eval = np.linspace(0, 1, 1000)
 
-m1_solution = model1.solve(t_eval, X)
-m2_solution = model2.solve(t_eval, X)
-
-solutions = pk.Solution([model1, model2])
+solutions = pk.Solution(model1)
+solutions.add_model(model2)
 solutions.plot()

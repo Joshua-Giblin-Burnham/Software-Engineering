@@ -38,7 +38,7 @@ class Model:
             self.compartments['peripheral'].append(Compartment(name, **kwargs))
 
         else:
-            ValueError('Not accepted compartment label')
+            ValueError('Not accepted compartment choose: central, dosing or perpherial_X')
 
 
     def add_protocol(self, name, dose):
@@ -50,15 +50,16 @@ class Model:
             q0 = kwargs['q0']
         else:
             q0 = np.array([compartment.q0 
-                        for compartment_list in self.compartments.values() 
-                        for compartment in compartment_list])
+                            for compartment_list in self.compartments.values() 
+                            for compartment in compartment_list])
             
         rhs = self.protocol[-1].rhs
-        
+
         solution = scipy.integrate.solve_ivp(fun = lambda t, q : rhs(t, q, *args),
                                         t_span = [t_eval[0], t_eval[-1]],
                                         y0 = q0, t_eval = t_eval )
         self.solution = solution
         
-        return solution
+        if 'return_sol' in kwargs and kwargs['return_sol']==True:
+            return solution
     
