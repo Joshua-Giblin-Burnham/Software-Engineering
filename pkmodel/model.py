@@ -16,7 +16,7 @@ class Model:
         an example paramter
     """
 
-    def __init__(self, name):
+    def __init__(self, name = 'pkmodel'):
         self.name = name
         self.compartments = {'central' : [], 
                              'dose' : [], 
