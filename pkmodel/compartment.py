@@ -4,7 +4,9 @@
 
 class Compartment:
     """A Pharmokinetic (PK) compartment used in a given model type. Holds compartment data.
-
+    
+    Parameters
+    ----------
     :param name: Name/Type of compartment - must be either central, dose, or peripheral_X.
     :type name: string
     :param volume: Volume of compartment, mush be positive.

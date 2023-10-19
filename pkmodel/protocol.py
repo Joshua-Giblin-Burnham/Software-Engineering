@@ -51,7 +51,7 @@ class Protocol:
             if len(self.compartments['dose'])!=0:
                 # Extract dose compartment
                 dose_cmpt = self.compartments['dose'][0]
-
+                
                 # Set dose quantity differential, using compartment variables and dose function
                 q0_dot  = self.dose(t, *args) - dose_cmpt.k_rate*q[-1]
 
