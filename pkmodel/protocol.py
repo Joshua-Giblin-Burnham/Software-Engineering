@@ -1,6 +1,7 @@
 #
 # Protocol class
 #
+import numpy as np
 
 class Protocol:
     """A Pharmokinetic (PK) protocol
@@ -13,31 +14,35 @@ class Protocol:
 
     """
 
-    def __init__(self, dose, name='intravenous'):
+    def __init__(self, name, compartments, dose):
         self.name = name
+        self.compartments = compartments
         self.dose = dose
 
-    def rhs(self, t, y, args): 
-        if self.name == 'intravenous':
-                Q_p1, V_c, V_p1, CL, X = args
+    def rhs(self, t, q, *arg): 
+        cent_cmpt        = self.compartments['central'][0]
+        peripheral_cmpts = self.compartments['peripheral']
 
-                q_c, q_p1 = y
-                transition = Q_p1 * (q_c / V_c - q_p1 / V_p1)
 
-                dqc_dt  = self.dose(t, X) - q_c / V_c * CL - transition
-                dqp1_dt = transition
+        transition = [( q[0]/cent_cmpt.volume - q[i+1] / p_cmpt.volume) * p_cmpt.k_rate 
+                     for i, p_cmpt in enumerate(peripheral_cmpts)]
 
-                return [dqc_dt, dqp1_dt]
+        if self.name == 'subcutaneous' and  len(self.compartments['dose'])!=0:
+            dose_cmpt = self.compartments['dose'][0]
 
-        elif self.name == 'subcutaneous':
-                Q_p1, V_c, V_p1, CL, X, k_a = args
+            q0_dot  = self.dose(t, *arg) - dose_cmpt.k_rate*q[-1]
+            qc_dot  = np.array([dose_cmpt.k_rate*q[-1] - q[0]*cent_cmpt.k_rate/cent_cmpt.volume - sum(transition)])
+            qpi_dot = np.array(transition)
 
-                q_0, q_c, q_p1 = y
+            return np.hstack((q0_dot, qc_dot, qpi_dot))
+        
+        elif self.name == 'intravenous': 
+            qc_dot = np.array([self.dose(t, *arg) - q[0]*cent_cmpt.k_rate/cent_cmpt.volume - sum(transition)])
+            qpi_dot = np.array(transition)
 
-                transition = Q_p1 * (q_c / V_c - q_p1 / V_p1)
-
-                dq0_dt  = self.dose(t, X) - k_a*q_0
-                dqc_dt  = k_a*q_0 - q_c / V_c * CL - transition
-                dqp1_dt = transition
-
-                return [dq0_dt, dqc_dt, dqp1_dt]
+            return np.hstack((qc_dot, qpi_dot))
+        
+        else:
+            ValueError('Not accepted dosing label')
+        
+            
