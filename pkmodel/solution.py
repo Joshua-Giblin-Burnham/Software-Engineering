@@ -20,6 +20,12 @@ class Solution:
 		else: 
 			self.models = [models]
 
+	def add_model(self, model):
+		self.model.append(model)
+
+	def remove_model(self):
+		None
+	
 	def plot(self):
 		fig, ax = plt.subplots(1,1)
 		linestyle = ['-.','--']
@@ -38,7 +44,9 @@ class Solution:
 
 			for compartment in range(N):
 				ax.plot(solution.t, solution.y[compartment+1, :], ls = np.roll(linestyle, compartment)[0], color = plt.gca().lines[-1].get_color(), label=model.name+"q.peripheral_"+str(compartment+1))
-
+	  
+		ax.set_ylabel('drug mass [ng]')
+		ax.set_xlabel('time [h]')
 
 		plt.legend()
 		plt.show()
