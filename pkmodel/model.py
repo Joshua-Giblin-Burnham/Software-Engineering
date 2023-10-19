@@ -44,12 +44,18 @@ class Model:
     def add_protocol(self, name, dose):
         self.protocol.append(Protocol(name, self.compartments, dose))
 
-    def solve(self, t_eval, *arg):
-        q0 = np.array([compartment.q0 
-                       for compartment_list in self.compartments.values() 
-                       for compartment in compartment_list])
+    def solve(self, t_eval, *args, **kwargs):
+
+        if 'q0' in kwargs:
+            q0 = kwargs['q0']
+        else:
+            q0 = np.array([compartment.q0 
+                        for compartment_list in self.compartments.values() 
+                        for compartment in compartment_list])
+            
         rhs = self.protocol[-1].rhs
-        solution = scipy.integrate.solve_ivp(fun = lambda t, q : rhs(t, q, *arg),
+        
+        solution = scipy.integrate.solve_ivp(fun = lambda t, q : rhs(t, q, *args),
                                         t_span = [t_eval[0], t_eval[-1]],
                                         y0 = q0, t_eval = t_eval )
         self.solution = solution
