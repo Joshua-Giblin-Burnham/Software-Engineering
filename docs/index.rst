@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-PKMODEL Package
+Introduction
 ===================================
 
 .. image:: images/pk1.jpg
@@ -17,7 +17,7 @@ visualisation of a PK model.
 Authors
 ===================================
 
-J. Giblin-Burnham, C. Hamiltion, C. Chung, F. 
+J. Giblin-Burnham, C. Hamiltion, C. Chung, F. Rivetti 
 
 Background
 ===================================
@@ -30,10 +30,11 @@ drug to the biological target, and/or undesirable side effects, to form a full P
 This project will only focus on PK, neglecting the interaction with a PD model.
 
 PK enables the following processes to be quantified:
-- Absorption
-- Distribution
-- Metabolism
-- Excretion
+
+* Absorption
+* Distribution
+* Metabolism
+* Excretion
 
 Model overview
 ===================================
@@ -137,6 +138,7 @@ Only one central and one dosing compartment can be given to a single model. Comp
 This is set in the code as follows:
 
 .. code-block:: python
+
    # Add central compartments  
    model1.add_compartment('central', volume= 1, k_rate=1.0, q0=0)
 
@@ -150,6 +152,7 @@ This is set in the code as follows:
 Functions within code then allow you to set given protocol and solve the model.
 
 .. code-block:: python
+
    # Define protocol
    model1.add_protocol('subcutaneous', dose)
 
@@ -159,6 +162,7 @@ Functions within code then allow you to set given protocol and solve the model.
 Using the solution class the model can then be plotted
 
 .. code-block:: python
+
    # Create solution class 
    solutions = pk.Solution(model1)
    solutions.add_model(model2)
@@ -167,12 +171,20 @@ Using the solution class the model can then be plotted
    solutions.plot_all()
    solutions.plot_indiv()
 
+
 Documentation
-===================================
+==================
+.. rubric:: Modules
 
 .. autosummary::
    :toctree: generated
-   pkmodel
+
+   pkmodel.__init__
+   pkmodel.compartment
+   pkmodel.model
+   pkmodel.protocol
+   pkmodel.solution
+
 
 
 Indices and tables

@@ -31,8 +31,13 @@ extensions = ['sphinx_rtd_theme',
               'sphinx.ext.duration',
               'sphinx.ext.doctest',
               'sphinx.ext.autodoc',
-              'sphinx.ext.autosummary',
-]
+              'sphinx.ext.napoleon',
+              'sphinx.ext.viewcode',
+              'sphinx.ext.autosummary', ]
+
+# Autodoc settings
+autodoc_mock_imports = ["matplotlib.pyplot", "numpy" , "scipy.integrate", "pkmodel"]
+autodoc_default_flags = ['members']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
