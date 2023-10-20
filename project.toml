@@ -6,7 +6,7 @@ name = "pkmodel"
 version = "0.1"
 description = 'A package to model Pharmacokinetic drug delivery'
 authors = [
-    {name = "J. Giblin-Burnham, C. Hamiltion, C. Chung, F.",  email = "j.giblin-burnham@hotmail.com"}
+    {name = "J. Giblin-Burnham, C. Hamiltion, C. Chung, F. Rivetti",  email = "j.giblin-burnham@hotmail.com"}
 ]
 readme = "README.md"
 homepage = 'https://pkmodel.readthedocs.io/en/latest/index.html'
