@@ -103,6 +103,3 @@ class Solution:
 			ax.set_xlabel('Time (h)')
 			plt.legend()
 			plt.show()
-
-			print(model.protocol[-1].name)
-
