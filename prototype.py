@@ -16,8 +16,8 @@ model1 = pk.Model('model1')
 
 # Add compartments
 model1.add_compartment('central', volume= 1, k_rate=1.0)
-model1.add_Ncompartments(2, volume= 1, k_rate=1.0)
-model1.add_compartment('dose', k_rate=1.0)
+model1.add_Ncompartments(1, volume= 1, k_rate=1.0)
+model1.add_compartment('dose', k_rate=0.5)
 
 # Define protocol
 model1.add_protocol('subcutaneous', dose)
@@ -45,4 +45,5 @@ solutions = pk.Solution(model1)
 solutions.add_model(model2)
 
 # Visualise
-solutions.plot()
+solutions.plot_all()
+solutions.plot_indiv()
