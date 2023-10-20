@@ -2,10 +2,7 @@
 A PharmacoKinetic (PK) model for analysis of injected solute dynamics over time.
 
 ## **Authors**
-Joshua Giblin-Burnham /n
-Francesco Rivetti-Macorig
-Charlie Hamilton
-Christopher Chung
+Joshua Giblin-Burnham, Francesco Rivetti-Macorig, Charlie Hamilton and Christopher Chung
 
 
 ## **Background**
