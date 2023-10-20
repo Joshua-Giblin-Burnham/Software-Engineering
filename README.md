@@ -1,4 +1,10 @@
-# **Pharmokinetic Modelling**
+# **Pharmacokinetic Modelling Group Project**
+A PharmacoKinetic (PK) model for analysis of injected solute dynamics over time.
+
+## **Authors**
+Slayslay
+
+## **Background**
 The field of Pharmacokinetics (PK) provides a quantitative basis for describing the delivery of a drug to a patient, the diffusion of that drug through the plasma/body tissue, and the subsequent clearance of the drug from the patient's system. PK is used to ensure that there is sufficient concentration of the drug to maintain the required efficacy of the drug, while ensuring that the concentration levels remain below the toxic threshold (See Fig 1). Pharmacokinetic (PK) models are often combined with Pharmacodynamic (PD) models, which model the positive effects of the drug, such as the binding of a drug to the biological target, and/or undesirable side effects, to form a full PKPD model of the drug-body interaction. This project will only focus on PK, neglecting the interaction with a PD model.
 
 PK enables the following processes to be quantified:
@@ -39,6 +45,11 @@ $$ \frac{dq_{c}}{dt} = k_{\alpha}q_{0} - \frac{q_{c}}{V_{c}}CL - Q_{p1} (\frac{q
 $$ \frac{dq_{p1}}{dt} = Q_{p1} - (\frac{q_{c}}{V_{c}} - \frac{q_{p1}}{V_{p1}}). $$
 
 where *k<sub>α</sub>* [/h] is the “absorption” rate for the s.c dosing.
+
+## **Model review**
+
+## **Installation**
+
 
 
 
