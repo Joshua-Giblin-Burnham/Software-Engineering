@@ -86,8 +86,8 @@ Or by either copying the pkmodel package to the same directory or to the main py
 
 The model class holds information regarding a given model, holding the compartments involved, the dosig protocol and solutions. The model is initialise as followed with a given name:  
 
-   # Set first model
-   model1 = pk.Model('model1')
+     # Set first model
+     model1 = pk.Model('model1')
 
 Once a model is initialised the class has a function to add a compartment. Compartments require specific names to dictate their function. Compartments include:
 
@@ -103,30 +103,30 @@ Only one central and one dosing compartment can be given to a single model. Comp
 
 This is set in the code as follows:
 
-   # Add central compartments  
-   model1.add_compartment('central', volume= 1, k_rate=1.0, q0=0)
+     # Add central compartments  
+     model1.add_compartment('central', volume= 1, k_rate=1.0, q0=0)
 
-   # Add peripheral compartments either individually or in bulk
-   model1.add_compartment('peripheral_1', k_rate=1.0, q0=0)   
-   model1.add_Ncompartments(2, volume= 1, k_rate=1.0, q0=0)
+     # Add peripheral compartments either individually or in bulk
+     model1.add_compartment('peripheral_1', k_rate=1.0, q0=0)   
+     model1.add_Ncompartments(2, volume= 1, k_rate=1.0, q0=0)
    
-   # Add dosing compartment for subcutaneous
-   model1.add_compartment('dose', k_rate=1.0, q0=0)
+     # Add dosing compartment for subcutaneous
+     model1.add_compartment('dose', k_rate=1.0, q0=0)
 
 Functions within code then allow you to set given protocol and solve the model.
 
-   # Define protocol
-   model1.add_protocol('subcutaneous', dose)
+     # Define protocol
+     model1.add_protocol('subcutaneous', dose)
 
-   # Solve model
-   model1.solve(t_eval, X )
+     # Solve model
+     model1.solve(t_eval, X )
 
 Using the solution class the model can then be plotted
 
-   # Create solution class 
-   solutions = pk.Solution(model1)
-   solutions.add_model(model2)
+     # Create solution class 
+     solutions = pk.Solution(model1)
+     solutions.add_model(model2)
 
-   # Visualise model solutions
-   solutions.plot_all()
-   solutions.plot_indiv()
+     # Visualise model solutions
+     solutions.plot_all()
+     solutions.plot_indiv()
