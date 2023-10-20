@@ -173,18 +173,11 @@ Using the solution class the model can then be plotted
 
 
 Documentation
-==================
-.. rubric:: Modules
+===================================
 
-.. autosummary::
-   :toctree: generated
-
-   pkmodel.__init__
-   pkmodel.compartment
-   pkmodel.model
-   pkmodel.protocol
-   pkmodel.solution
-
+.. toctree::
+   :maxdepth: 2
+   documentation
 
 
 Indices and tables
