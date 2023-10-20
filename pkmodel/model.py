@@ -57,7 +57,7 @@ class Model:
 
         # Raise value error if invalide name given
         else:
-            ValueError('Not accepted compartment choose: central, dosing or perpherial_X')
+            raise ValueError('Not accepted compartment choose: central, dosing or perpherial_X')
 
 
     def add_Ncompartments(self, N, **kwargs):
