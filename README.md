@@ -18,7 +18,31 @@ The body itself is modelled as one or more *compartments*, each of which is defi
 The following example PK model describes the two-compartment model shown diagrammatically in Fig 2. The time-dependent variables to be solved are the drug quantity in the central and peripheral compartments, 
 *q<sub>c</sub>* and *q<sub>p1</sub>* (units: [ng]) respectively.
 
-$$ \frac{dq}{dt} = Dose(t) - \frac{qc}{Vc}CL - Q_{p1} (\frac{qc}{Vc} - \frac{q_{p1}}{V_{p1}}), $$
+$$ \frac{dq}{dt} = Dose(t) - \frac{q_{c}}{V_{c}}CL - Q_{p1} (\frac{q_{c}}{V_{c}} - \frac{q_{p1}}{V_{p1}}), $$
 
-$$ \frac{dq_{p1}}{dt} = Q_{p1} (\frac{qc}{Vc} - \frac{q_{p1}}{V_{p1}}) . $$
+$$ \frac{dq_{p1}}{dt} = Q_{p1} (\frac{q_{c}}{V_{c}} - \frac{q_{p1}}{V_{p1}}) . $$
+
+This model describes an *intravenous bolus* dosing protocol, with a linear clearance from the central compartment (non-linear clearance processes are also possible, but not considered here). The input parameters to the model are:
+
+- The dose function *Dose(t)*, which could consist of instantaneous doses of *X* ng of the drug at one or more time points, or a steady application of *X* ng per hour over a given time period, or some combination.
+- V<sub>c</sub> [mL], the volume of the central compartment
+- V<sub>p1</sub> [mL], the volume of the first peripheral compartment
+- CL [mL/h], the clearance/elimination rate from the central compartment
+- Q<sub>p1</sub> [mL/h], the transition rate between central compartment and peripheral compartment 1
+
+Another example model we will show uses subcutaneous dosing, and adds an additional compartment from which the drug is absorbed to the central compartment
+
+$$ \frac{dq_{0}}{dt} = Dose(t) - k_{\alpha}q_{0}, $$
+
+$$ \frac{dq_{c}}{dt} = k_{\alpha}q_{0} - \frac{q_{c}}{V_{c}}CL - Q_{p1} (\frac{q_{c}}{V_{c}} - \frac{q_{p1}}{V_{p1}}), $$
+
+$$ \frac{dq_{p1}}{dt} = Q_{p1} - (\frac{q_{c}}{V_{c}} - \frac{q_{p1}}{V_{p1}}). $$
+
+where *k<sub>\u03B1</sub>* [/h] is the “absorption” rate for the s.c dosing.
+
+
+
+
+
+
 
