@@ -55,16 +55,17 @@ class Solution:
 
 			# If subcutaneous/ has dosing compartment, plot dose compartment corresponding to last solution
 			if model.protocol[-1].name == 'subcutaneous':
-				ax.plot(solution.t, solution.y[-1, :], ':', color = plt.gca().lines[-1].get_color(), label=model.name+'q.dosing')
+				ax.plot(solution.t, solution.y[-1, :], ':', color = plt.gca().lines[-1].get_color(), label=model.name+' - q.dosing')
 
 			# Loop through and plot perpheral compartment solutions
 			for n in range(N):
 				ax.plot(solution.t, solution.y[n+1, :], ls = np.roll(linestyle, n)[0], 
-						color = plt.gca().lines[-1].get_color(), label=model.name+"q.peripheral_"+str(n+1))
+						color = plt.gca().lines[-1].get_color(), label=model.name+" - q.peripheral_"+str(n+1))
 	  
 	  	# Set labels and legend
-		ax.set_ylabel('drug mass [ng]')
-		ax.set_xlabel('time [h]')
+		plt.title('All models')
+		ax.set_ylabel('Drug mass (ng)')
+		ax.set_xlabel('Time (h)')
 		plt.legend()
 		plt.show()
 
