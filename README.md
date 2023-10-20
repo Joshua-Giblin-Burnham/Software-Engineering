@@ -60,6 +60,15 @@ $$ \frac{dq_{p1}}{dt} = Q_{p1} - (\frac{q_{c}}{V_{c}} - \frac{q_{p1}}{V_{p1}}). 
 
 where *k<sub>α</sub>* [/h] is the “absorption” rate for the s.c dosing.
 
+## For multiple components
+When dealing with more complex systems the following equation is used, which builds on the previous equations to enable multi-compartment modeling. 
+
+$$ \frac{dq_{0}}{dt} = Dose(t) - k_{\alpha}q_{0}, $$
+
+$$ \frac{dq_{c}}{dt} = k_{\alpha}q_{0} - \frac{q_{c}}{V_{c}}CL - \sum_{i=1}^{N}Q_{pi} (\frac{q_{c}}{V_{c}} - \frac{q_{pi}}{V_{pi}}) , $$
+
+$$ \frac{dq_{pi}}{dt} = Q_{pi}(\frac{q_{c}}{V_{c}} - \frac{q_{pi}}{V_{pi}}). $$
+
 ## **Installation**
 
 ## **Model review**
