@@ -14,7 +14,7 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 import sphinx_rtd_theme
-import pkmodel
+
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
@@ -36,7 +36,7 @@ extensions = ['sphinx_rtd_theme',
               'sphinx.ext.autosummary', ]
 
 # Autodoc settings
-autodoc_mock_imports = ["matplotlib.pyplot", "numpy" , "scipy.integrate",]
+autodoc_mock_imports = ["matplotlib.pyplot", "numpy" , "scipy.integrate", "pkmodel"]
 autodoc_default_flags = ['members']
 
 # Add any paths that contain templates here, relative to this directory.
