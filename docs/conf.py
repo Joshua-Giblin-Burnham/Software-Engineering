@@ -31,8 +31,9 @@ extensions = ['sphinx_rtd_theme',
               'sphinx.ext.duration',
               'sphinx.ext.doctest',
               'sphinx.ext.autodoc',
-              'sphinx.ext.autosummary',
-]
+              'sphinx.ext.napoleon',
+              'sphinx.ext.viewcode',
+              'sphinx.ext.autosummary', ]
 
 # Autodoc settings
 autodoc_default_flags = ['members']
