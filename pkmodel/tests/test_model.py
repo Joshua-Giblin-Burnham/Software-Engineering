@@ -65,11 +65,10 @@ class ModelTest(unittest.TestCase):
         )
 
         test_model = pk.Model(name='test_model')
-        test_model.add_compartment(name='dose', k_rate=1)
-        test_model.add_compartment(name='peripheral', volume=1, k_rate=1)
+        test_model.add_compartment(name='peripheral1', volume=1, k_rate=1)
         test_model.add_compartment(name='central', volume=1, k_rate=1)
 
-        test_model.add_protocol('subcutaneous', dose)
+        test_model.add_protocol('intravenous', dose)
 
         test_solution = test_model.solve(t_eval, X, return_sol=True)
 
