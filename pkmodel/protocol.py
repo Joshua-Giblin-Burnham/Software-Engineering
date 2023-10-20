@@ -18,7 +18,7 @@ class Protocol:
 
     # Initialise protocol defining dose function, name(i.e. type), and compartments the model holds
     def __init__(self, name, compartments, dose):
-        if name != 'subcutaneous' or name != 'intravenous': 
+        if name not in ['subcutaneous', 'intravenous']: 
             raise ValueError('Not accepted protocol label, must be intravenous or subcutaneous')
         else:
             self.name = name
