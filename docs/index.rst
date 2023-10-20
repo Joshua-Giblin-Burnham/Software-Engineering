@@ -185,12 +185,6 @@ Documentation
    pkmodel.protocol
    pkmodel.solution
 
-.. .. autosummary
-..    :toctree: _autosummary
-..    :template: custom-module-template.rst
-..    :recursive:
-
-..    pkmodel
 
 
 Indices and tables
