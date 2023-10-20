@@ -13,4 +13,5 @@ These are often referred to as ADME, and taken together describe the drug concen
 
 The body itself is modelled as one or more *compartments*, each of which is defined as a kinetically homogeneous unit (these compartments do not relate to specific organs in the body, unlike Physiologically based pharmacokinetic, PBPK, modeling). There is typically a main *central* compartment into which the drug is administered and from which the drug is excreted from the body, combined with zero or more *peripheral* compartments to which the drug can be distributed to/from the central compartment (See Fig 2). Each peripheral compartment is only connected to the central compartment.
 
-s
+The following example PK model describes the two-compartment model shown diagrammatically in Fig 2. The time-dependent variables to be solved are the drug quantity in the central and peripheral compartments, 
+*q<sub>c</sub>* and *q<sub>p1</sub>* (units: [ng]) respectively.
