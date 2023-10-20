@@ -45,5 +45,5 @@ solutions = pk.Solution(model1)
 solutions.add_model(model2)
 
 # Visualise
-solutions.plot_all()
-solutions.plot_indiv()
+solutions.plot_all(save = True, fname = 'plot.png')
+solutions.plot_indiv(save = True)

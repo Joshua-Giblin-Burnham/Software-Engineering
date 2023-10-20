@@ -36,7 +36,7 @@ class Solution:
 		else: 
 			self.models.append(model)
 	
-	def plot_all(self):
+	def plot_all(self, fname, save = False):
 		"""Function to plot all models' results in one graph"""
 		# Initialise subplot and set line styles
 		fig, ax = plt.subplots(1,1)
@@ -67,9 +67,17 @@ class Solution:
 		ax.set_ylabel('Drug mass (ng)')
 		ax.set_xlabel('Time (h)')
 		plt.legend()
+
+		if save == True:
+			plt.savefig('plots/' + fname)
+
 		plt.show()
 
-	def plot_indiv(self):
+		print(self.models)
+		
+
+
+	def plot_indiv(self, save = False):
 		"""Function to plot individual model results"""
 
 		# Loop for each model in class list
@@ -101,5 +109,13 @@ class Solution:
 			plt.title(model.name + ' - ' + model.protocol[-1].name)
 			ax.set_ylabel('Drug mass (ng)')
 			ax.set_xlabel('Time (h)')
-			plt.legend()
+			plt.legend(title = 'Compartments')
+
+			if save == True:
+				plt.savefig('plots/' + model.name + ' - ' + model.protocol[-1].name)
+
 			plt.show()
+
+
+
+
