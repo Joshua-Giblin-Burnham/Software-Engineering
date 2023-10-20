@@ -53,7 +53,7 @@ class Protocol:
                 dose_cmpt = self.compartments['dose'][0]
                 
                 # Set dose quantity differential, using compartment variables and dose function
-                q0_dot  = self.dose(t, *args) - dose_cmpt.k_rate*q[-1]
+                qd_dot  = self.dose(t, *args) - dose_cmpt.k_rate*q[-1]
 
                 # Central differential proportional to sum of N perpheral transitions
                 qc_dot  = np.array([dose_cmpt.k_rate*q[-1] - q[0]*cent_cmpt.k_rate/cent_cmpt.volume - sum(transition)])
@@ -61,7 +61,7 @@ class Protocol:
                 # N peripheral differentials proportional to each corresponding N transiton
                 qpi_dot = np.array(transition)
 
-                return np.hstack((q0_dot, qc_dot, qpi_dot))
+                return np.hstack((qc_dot, qpi_dot, qd_dot))
             
             # Raise error is dose compartment not added
             else:
