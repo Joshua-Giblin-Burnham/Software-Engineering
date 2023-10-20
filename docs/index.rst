@@ -171,8 +171,19 @@ Using the solution class the model can then be plotted
    solutions.plot_all()
    solutions.plot_indiv()
 
+
 Documentation
-===================================
+==================
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree: generated
+
+   pkmodel.__init__
+   pkmodel.compartment
+   pkmodel.model
+   pkmodel.protocol
+   pkmodel.solution
 
 .. .. autosummary
 ..    :toctree: _autosummary
@@ -181,10 +192,6 @@ Documentation
 
 ..    pkmodel
 
-.. toctree::
-   :maxdepth: 2
-   
-   generate/pkmodel.rst
 
 Indices and tables
 ==================
