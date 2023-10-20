@@ -174,10 +174,13 @@ Using the solution class the model can then be plotted
 
 Documentation
 ===================================
+.. autopackagesummary:: pkmodel
+   :toctree: _autosummary
 
-.. toctree::
-   :maxdepth: 2
-   documentation
+.. .. toctree:
+..    :maxdepth: 2
+..    documentation
+
 
 
 Indices and tables
