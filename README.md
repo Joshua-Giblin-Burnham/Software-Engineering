@@ -1,5 +1,5 @@
 # **Pharmacokinetic Modelling Group Project**
-A PharmacoKinetic (PK) model for analysis of injected solute dynamics over time.
+This is a Python package for the analysis PharmacoKinetic (PK) models of an injected solute dynamics over time. The code enables users to create models with custom parameters and find and plot the solutions. Users have the ability to plot multiple models together, and so compare them. Or plot the models separately for a more detailed and specific visualisation of a PK model. 
 
 ## **Authors**
 Joshua Giblin-Burnham, Francesco Rivetti-Macorig, Charlie Hamilton and Christopher Chung
