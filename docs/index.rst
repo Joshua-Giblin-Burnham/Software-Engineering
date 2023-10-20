@@ -184,7 +184,7 @@ Documentation
 .. toctree::
    :maxdepth: 2
    
-   documentation
+   generate/pkmodel.rst
 
 Indices and tables
 ==================
