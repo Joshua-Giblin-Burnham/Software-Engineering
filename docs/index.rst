@@ -174,19 +174,17 @@ Using the solution class the model can then be plotted
 Documentation
 ===================================
 
-.. autosummary::
-   :toctree: _autosummary
-   :template: custom-module-template.rst
-   :recursive:
+.. .. autosummary
+..    :toctree: _autosummary
+..    :template: custom-module-template.rst
+..    :recursive:
 
-   pkmodel
+..    pkmodel
 
-
-.. .. toctree
-..    :maxdepth: 2
-..    :caption: Contents:
-
-..    documentation
+.. toctree::
+   :maxdepth: 2
+   
+   documentation
 
 Indices and tables
 ==================
