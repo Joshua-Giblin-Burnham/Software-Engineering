@@ -18,9 +18,12 @@ class Protocol:
 
     # Initialise protocol defining dose function, name(i.e. type), and compartments the model holds
     def __init__(self, name, compartments, dose):
-        self.name = name
-        self.compartments = compartments
-        self.dose = dose
+        if name != 'subcutaneous' or name != 'intravenous': 
+            ValueError('Not accepted protocol label, must be intravenous or subcutaneous')
+        else:
+            self.name = name
+            self.compartments = compartments
+            self.dose = dose
 
     # Define RHS function
     def rhs(self, t, q, *args): 
