@@ -71,6 +71,7 @@ setup(
             'sphinx>=1.5, !=1.7.3',
             # Nice theme for docs
             'sphinx_rtd_theme',
+            'sphinx_autopackagesummary',
         ],
         'dev': [
             # Flake8 for code style checking
