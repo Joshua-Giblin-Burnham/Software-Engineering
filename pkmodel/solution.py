@@ -72,8 +72,6 @@ class Solution:
 			plt.savefig('plots/' + fname)
 
 		plt.show()
-
-		print(self.models)
 		
 
 
