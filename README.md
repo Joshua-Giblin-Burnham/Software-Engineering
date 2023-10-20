@@ -17,3 +17,8 @@ The body itself is modelled as one or more *compartments*, each of which is defi
 
 The following example PK model describes the two-compartment model shown diagrammatically in Fig 2. The time-dependent variables to be solved are the drug quantity in the central and peripheral compartments, 
 *q<sub>c</sub>* and *q<sub>p1</sub>* (units: [ng]) respectively.
+
+$$ \frac{dq}{dt} = Dose(t) - \frac{qc}{Vc}CL - Qp1 (\frac{qc}{Vc} - \frac{qp1}{Vp1}), $$
+
+$$ \frac{dqp1}{dt} = Qp1 (\frac{qc}{Vc} - \frac{qp1}{Vp1}) . $$
+
