@@ -38,7 +38,7 @@ $$ \frac{dq_{c}}{dt} = k_{\alpha}q_{0} - \frac{q_{c}}{V_{c}}CL - Q_{p1} (\frac{q
 
 $$ \frac{dq_{p1}}{dt} = Q_{p1} - (\frac{q_{c}}{V_{c}} - \frac{q_{p1}}{V_{p1}}). $$
 
-where *k<sub>\u03B1</sub>* [/h] is the “absorption” rate for the s.c dosing.
+where *k<sub>&alpha</sub>* [/h] is the “absorption” rate for the s.c dosing.
 
 
 
