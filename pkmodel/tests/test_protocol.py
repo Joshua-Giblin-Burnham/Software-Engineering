@@ -1,5 +1,6 @@
 import unittest
 import pkmodel as pk
+import numpy as np
 
 
 class ProtocolTest(unittest.TestCase):
@@ -10,6 +11,6 @@ class ProtocolTest(unittest.TestCase):
         """
         Tests Protocol creation.
         """
-        protocol = pk.Protocol(name ='test_protocol', dose=2, compartments=[])
-        self.assertEqual(protocol.name, 'test_protocol')
+        protocol = pk.Protocol(name ='subcutaneous', dose=2, compartments=[])
+        self.assertEqual(protocol.name, 'subcutaneous')
 
