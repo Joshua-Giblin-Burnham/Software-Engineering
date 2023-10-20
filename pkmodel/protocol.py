@@ -19,7 +19,7 @@ class Protocol:
     # Initialise protocol defining dose function, name(i.e. type), and compartments the model holds
     def __init__(self, name, compartments, dose):
         if name != 'subcutaneous' or name != 'intravenous': 
-            ValueError('Not accepted protocol label, must be intravenous or subcutaneous')
+            raise ValueError('Not accepted protocol label, must be intravenous or subcutaneous')
         else:
             self.name = name
             self.compartments = compartments
@@ -68,7 +68,7 @@ class Protocol:
             
             # Raise error is dose compartment not added
             else:
-                ValueError('Subcutaneous protocol requires dosing compartment')
+                raise ValueError('Subcutaneous protocol requires dosing compartment')
 
         elif self.name == 'intravenous': 
             # Central differential proportional to sum of N perpheral transitions
@@ -80,6 +80,6 @@ class Protocol:
         
         # Error if dosing label incorrect
         else:
-            ValueError('Not accepted dosing label, must be intravenous or subcutaneous')
+            raise ValueError('Not accepted dosing label, must be intravenous or subcutaneous')
         
             

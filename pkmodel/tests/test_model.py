@@ -10,6 +10,10 @@ from functools import partial
 def dose(t, X):
     return X
 
+t_eval = np.linspace(0, 1, 1000)
+y0 = np.array([0.0, 0.0])
+X=1.0
+
 def rhs(t, y, Q_p1, V_c, V_p1, CL, X):
     q_c, q_p1 = y
     transition = Q_p1 * (q_c / V_c - q_p1 / V_p1)
@@ -30,18 +34,29 @@ class ModelTest(unittest.TestCase):
 
         self.assertEqual(model.name, 'test_name')
 
+    def test_add_compartment(self):
+        """
+        Tests a compartment can be added to a model
+        """
+        model = pk.Model('test_name')
+        model.add_compartment('central', volume=1, k_rate=1)
+        self.assertEqual(model.compartments['central'][-1].name, 'central')
+
+    
+    def test_add_Ncompartments(self):
+        """
+        Tests multiple compartments can be added 
+        """
+        model = pk.Model('test_name')
+        model.add_Ncompartments(N=3, volume=1, k_rate=1)
+        self.assertEqual(model.compartments['peripheral'][-1].name, 'peripheral_2')
+
     def test_correct_output(self):
         """
         Tests that the model gives the correct values as the original code 
         """
 
         #Set up the parameters for the test
-
-        t_eval = np.linspace(0, 1, 1000)
-        y0 = np.array([0.0, 0.0])
-
-        X=1.0
-
         model = {
         'name': 'model',
         'Q_p1': 1.0,
@@ -79,6 +94,3 @@ class ModelTest(unittest.TestCase):
 
         #check that the output solution arrays are completely equal
         npt.assert_array_equal(sol.y, test_solution.y, verbose=True)
-        
-
-    
