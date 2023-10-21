@@ -174,10 +174,14 @@ Using the solution class the model can then be plotted
 
 Documentation
 ===================================
+
 .. toctree::
-   :maxdepth: 5
-      
-    modules
+   :maxdepth: 4
+
+   pkmodel
+   prototype
+   setup
+
 
 Indices and tables
 ==================
