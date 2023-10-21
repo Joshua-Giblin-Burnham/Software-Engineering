@@ -1,13 +1,14 @@
 pkmodel package
 ===============
 
-Subpackages
------------
+Module contents
+---------------
 
-.. toctree::
-   :maxdepth: 4
+.. automodule:: pkmodel
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
-   pkmodel.tests
 
 Submodules
 ----------
@@ -44,18 +45,3 @@ pkmodel.solution module
    :undoc-members:
    :show-inheritance:
 
-pkmodel.version\_info module
-----------------------------
-
-.. automodule:: pkmodel.version_info
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: pkmodel
-   :members:
-   :undoc-members:
-   :show-inheritance:
