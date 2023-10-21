@@ -174,14 +174,6 @@ Using the solution class the model can then be plotted
 
 Documentation
 ===================================
-.. autopackagesummary:: pkmodel
-   :toctree: _autosummary
-
-.. .. toctree:
-..    :maxdepth: 2
-..    documentation
-
-
 
 Indices and tables
 ==================
@@ -189,3 +181,30 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+.. automodule:: compartment
+    :members:
+
+.. automodule:: model
+    :members:
+
+.. automodule:: protocol
+    :members:
+
+.. automodule:: solution
+    :members:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+.. .. autopackagesummary: pkmodel
+..   :toctree: _autosummary
+
+.. .. toctree:
+..    :maxdepth: 2
+..    documentation
+
+
+
+
