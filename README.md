@@ -1,3 +1,8 @@
+[![Install Dependencies and Run Unit Tests](https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/actions/workflows/run-unittests.yml/badge.svg)](https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/actions/workflows/run-unittests.yml)
+[![Check Systems Compatability](https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/actions/workflows/check-systems-compat.yml/badge.svg)](https://github.com/Software-Engineering-BBSRC-Group-6/PK_modelling/actions/workflows/check-systems-compat.yml)
+[![codecov](https://codecov.io/gh/Software-Engineering-BBSRC-Group-6/PK_modelling/branch/main/graph/badge.svg?token=gdzMuuonBd)](https://codecov.io/gh/Software-Engineering-BBSRC-Group-6/PK_modelling)
+
+
 # **Pharmacokinetic Modelling Group Project**
 This is a Python package for the analysis PharmacoKinetic (PK) models of an injected solute dynamics over time. The code enables users to create models with custom parameters and find and plot the solutions. Users have the ability to plot multiple models together, and so compare them. Or plot the models separately for a more detailed and specific visualisation of a PK model. View documentation at https://se-pkmodel.readthedocs.io/en/latest/ .
 
@@ -68,7 +73,7 @@ $$ \frac{dq_{pi}}{dt} = Q_{pi}(\frac{q_{c}}{V_{c}} - \frac{q_{pi}}{V_{pi}}). $$
 
 ## **Installation**
 
-Within you python enviroment, the package can be simple pip installed:
+Clone the repository to your local machine. Within your python enviroment, the package can be simple pip installed:
 
 
     pip install pkmodel
