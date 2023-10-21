@@ -36,7 +36,7 @@ class Solution:
 		else: 
 			self.models.append(model)
 	
-	def plot_all(self, fname, save = False):
+	def plot_all(self, save = False, **kwargs):
 		"""Function to plot all models' results in one graph"""
 		# Initialise subplot and set line styles
 		fig, ax = plt.subplots(1,1)
@@ -69,7 +69,7 @@ class Solution:
 		plt.legend()
 
 		if save == True:
-			plt.savefig('plots/' + fname)
+			plt.savefig(kwargs['fname'])
 
 		plt.show()
 		
@@ -104,13 +104,13 @@ class Solution:
 						color = plt.gca().lines[-1].get_color(), label = "Peripheral_"+str(n+1))
 	  
 		  	# Set labels and legend
-			plt.title(model.name + ' - ' + model.protocol[-1].name)
+			plt.title(' - ' + model.protocol[-1].name)
 			ax.set_ylabel('Drug mass (ng)')
 			ax.set_xlabel('Time (h)')
 			plt.legend(title = 'Compartments')
 
 			if save == True:
-				plt.savefig('plots/' + model.name + ' - ' + model.protocol[-1].name)
+				plt.savefig( model.name + ' - ' + model.protocol[-1].name+'.png')
 
 			plt.show()
 
