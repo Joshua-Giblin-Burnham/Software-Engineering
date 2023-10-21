@@ -45,8 +45,8 @@ extensions = ['sphinx_rtd_theme',
 autosummary_generate = True
 
 # Autodoc settings
-autodoc_mock_imports = ["matplotlib.pyplot", "numpy" , "scipy.integrate"]
-# autodoc_default_flags = ['members']
+# autodoc_mock_imports = ["matplotlib.pyplot", "numpy" , "scipy.integrate"]
+autodoc_default_flags = ['members']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
